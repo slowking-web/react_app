@@ -1,6 +1,3 @@
-//import logo from './logo.svg';
-//import './App.css';
-import Photos from "./components/Photos";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import { useState } from "react";
@@ -13,17 +10,18 @@ import {
 } from "react-router-dom";
 import MainPage from './MainPage';
 import PostPage from './PostPage';
+import DeletePage from './DeletePage';
 
 function App() {
-  const [selectedImng, setSelectedImg] = useState(null);
 
   return (
     <div>
       <BrowserRouter>
         <Header />
         <Routes>
-          <Route path="/" element={<MainPage setSelectedImg/>} />
-          <Route path="/Post" element={<PostPage />} />
+          <Route path="/" element={<MainPage />} />
+          <Route path="/UploadPage" element={<PostPage />} />
+          <Route path="/DeletePage" element={<DeletePage />} />
         </Routes> 
         <Footer />
       </BrowserRouter>

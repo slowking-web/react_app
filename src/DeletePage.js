@@ -1,17 +1,17 @@
 import React from 'react'
 import './App.css';
 import "./styles.css";
-import Upload from "./components/Upload";
+import Delete from "./components/Delete";
 
-const PostPage = () => {
+const DeletePage = () => {
 
     return (
         <div>
             <main id="main" class="main">
-                <Upload />
+                <Delete />
             </main>
         </div>
     );
 };
 
-export default PostPage;
+export default DeletePage;

@@ -9,7 +9,9 @@ const Header = () => {
     <>
       <nav class="link">
         <ul>
-          <Link to="PostPage">Sample Page1</Link>
+          <Link to="/">TOP</Link>&nbsp;&nbsp;
+          <Link to="UploadPage">UPLOAD</Link>&nbsp;&nbsp;
+          <Link to="DeletePage">DELETE</Link>
         </ul>
       </nav>
       <header class="header">

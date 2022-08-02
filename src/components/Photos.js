@@ -1,4 +1,4 @@
-import DataPhotos from "./BD/BD.json";
+import React, { useEffect, useState } from 'react';
 import Masonry from "react-masonry-css";
 
 const Columns = {
@@ -8,7 +8,25 @@ const Columns = {
   700: 1
 };
 
-const Photos = ({ setSelectedImg }) => {
+function Photos() {
+  const [error, setError] = useState(null);
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [items, setItems] = useState([]);
+
+  useEffect(() => {
+    fetch('https://i1f0of7ut8.execute-api.ap-northeast-1.amazonaws.com/prod/undefined')
+    .then(res => res.json())
+    .then(
+      (result) => {
+        setItems(result);
+      },
+      (error) => {
+        setIsLoaded(true);
+        setError(error);
+      }
+    )
+   }, [])
+
   return (
     <div className="center-masonry">
       <Masonry
@@ -16,15 +34,14 @@ const Photos = ({ setSelectedImg }) => {
         className="my-masonry-grid"
         columnClassName="my-masonry-grid_column"
       >
-        {DataPhotos.map(({ id, src }) => {
-          return (
-            <div onClick={() => setSelectedImg(id)} key={id}>
-              <img src={src} alt="" />
-            </div>
-          );
-        })}
+        {items.map(item => (
+          <div>
+            <img src={item.src} alt="" />
+          </div>
+        ))}
       </Masonry>
     </div>
   );
 };
+
 export default Photos;
